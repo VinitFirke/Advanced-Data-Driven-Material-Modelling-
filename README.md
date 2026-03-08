@@ -1,7 +1,4 @@
 # Advanced-Data-Driven-Material-Modelling-
-
-This repo contains my final version of Inverse Problem for material parameter estimation using Proper Orthogonal Decomposition technique
-
 -----------------
 
 This repository focuses on reduced-order modeling for identifying optimized material parameters from the full-field experimental data by considering linear elasticity theory into account. The parameters - Shear Modulus (G) and Bulk Modulus (K) - vectorial notation used as $\boldsymbol{\kappa}$ are first identified using the Finite Element Method in FeniCSx as the Full-Order Model (FOM) and later on Proper Orthogonal Decomposition is employed as a model order reduction approach. This reduced order model (ROM) is first benchmarked with the full order model, later on compared with the experimental data, and finally its effectiveness to be used as a surrogate to the FOM is explored.
