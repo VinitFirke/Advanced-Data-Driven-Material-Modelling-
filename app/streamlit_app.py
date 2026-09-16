@@ -41,8 +41,8 @@ Digital Image Correlation (DIC) displacement data, using a POD + RBF **reduced-o
 model** trained as a surrogate for a FEniCSx full-order FEM solve.
 
 The ROM surrogate identifies parameters in **~0.1 seconds**, versus ~80 seconds for
-the full-order model, at comparable accuracy — see [`docs/theory.md`](
-https://github.com/) for the full derivation and FOM/ROM benchmark.
+the full-order model, at comparable accuracy — see `docs/theory.md` in the repo
+for the full derivation and FOM/ROM benchmark.
 """
 )
 
