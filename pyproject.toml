@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "romid"
+version = "0.1.0"
+description = "Reduced-order modeling for FEM-based material parameter identification (POD + RBF surrogate)."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Vinit Firke" }]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "scikit-learn>=1.2",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+# gmsh/meshio/mpi4py/ufl are pip-installable; dolfinx itself generally is not —
+# install it via conda (see environment.yml) and add this extra on top for the rest.
+fem = ["gmsh>=4.11", "meshio>=5.3", "mpi4py>=3.1", "ufl"]
+app = ["streamlit>=1.30"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+romid = "romid.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+src = ["src"]
