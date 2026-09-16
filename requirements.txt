@@ -1,0 +1,6 @@
+# For Streamlit Community Cloud (and anyone who wants a plain `pip install -r`
+# instead of `pip install -e ".[app]"`). Dependency versions are declared once,
+# in pyproject.toml -- this just installs the package (editable) with its
+# "app" extra (streamlit) on top of the core numpy/scipy/pandas/scikit-learn/
+# matplotlib dependencies.
+-e .[app]
