@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package (no FEM extra -- dolfinx is conda-only, see environment.yml)
+        run: pip install -e ".[dev]"
+
+      - name: Lint
+        run: ruff check src tests
+
+      - name: Test
+        run: pytest -v
+
+  # The FOM path (romid.fom / romid.geometry) needs dolfinx + gmsh, which aren't
+  # pip-installable -- see environment.yml for the conda-based dev setup. Only the
+  # ROM/surrogate/inverse math above is exercised in default CI.

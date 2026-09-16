@@ -20,7 +20,7 @@ class RBFSurrogate:
         self.cfg = cfg
         self._models: list | None = None
 
-    def fit(self, material_params: np.ndarray, pod_coefficients: np.ndarray) -> "RBFSurrogate":
+    def fit(self, material_params: np.ndarray, pod_coefficients: np.ndarray) -> RBFSurrogate:
         """`material_params`: (N, 2) array of (G, K). `pod_coefficients`: (N, num_modes)."""
         from scipy.interpolate import Rbf
 
@@ -41,7 +41,7 @@ class RBFSurrogate:
             pickle.dump(self, f)
 
     @staticmethod
-    def load(path: str | Path) -> "RBFSurrogate":
+    def load(path: str | Path) -> RBFSurrogate:
         with open(path, "rb") as f:
             surrogate = pickle.load(f)
         if not isinstance(surrogate, RBFSurrogate):

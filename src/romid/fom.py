@@ -11,8 +11,8 @@ from .config import FACET_TAGS, SOLVER, FacetTags, SolverConfig
 
 def read_mesh(msh_path: str, comm=None, rank: int = 0):
     """Load the mesh + cell/facet tags written by `romid.geometry.build_mesh`."""
-    from mpi4py import MPI
     from dolfinx.io import gmshio
+    from mpi4py import MPI
 
     comm = comm or MPI.COMM_WORLD
     return gmshio.read_from_msh(msh_path, comm, rank)
