@@ -1,0 +1,17 @@
+name: PR Agent
+on:
+  pull_request:
+    types: [opened, synchronize]   # run when a PR is opened or new commits are pushed
+  issue_comment:                   # run when someone comments on a PR
+jobs:
+  pr_agent_job:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: the-pr-agent/pr-agent@main   # GitHub downloads PR-Agent itself
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
