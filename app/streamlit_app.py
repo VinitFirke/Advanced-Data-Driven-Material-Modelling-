@@ -6,7 +6,7 @@ HF Spaces. Launch locally with:
 
     pip install -e ".[app]"
     streamlit run app/streamlit_app.py
-    CHANGES WERE MADE HERE ON TEST-BRANCH
+    ANOTHER CHANGES CREATED IN APP FILE
 """
 from __future__ import annotations
 
